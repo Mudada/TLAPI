@@ -25,7 +25,6 @@ class StreamsController < ApplicationController
 
     divs = @@divs.css('div#non-featured div[style="margin-left:12px"]')
     non_featured_streams = Hash[titles.zip divs]
-    puts non_featured_streams
     non_featured_streams.each{|game, stream|
       if !stream.nil?
         urls = stream.css('a').collect{|url| 'http://www.teamliquid.net/' + url.attribute('href').value}
