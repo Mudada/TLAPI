@@ -6,8 +6,5 @@ This crapy api is designed to get online streams, live events and upcoming event
 | endpoint  | result   |
 |---------|--------------|
 |`GET:/streams`  | ```{"featured":[{streamer:streamer,game:"game",url:"url"]}"non_featured":[{streamer:streamer,game:"game",url:"url"]}```  |
-| `GET:/uevents` | ```{ids: [id, id1, ...]}``` |
-| `GET:/uevents/:id`  | ```{"uevent":{name:"name",date:"date",timer:"time",game:"game"}}```|
-| `GET:/levents` | ```{ids: [id, id1, ...]}``` |
-| `GET:/levents/:id`  | ```{"levent":{name:"name",date:"date",timer:"time",game:"game"}}```|
-
+| `GET:/uevents` | ```{"uevent":{id:"id", name:"name",date:"date",timer:"time",game:"game"}}``` |
+| `GET:/levents` | ```{"levent":{id:"id", name:"name",date:"date",timer:"time",game:"game"}}``` |
