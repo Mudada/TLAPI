@@ -6,7 +6,7 @@ class UeventsController < ApplicationController
     lives = @@document.css('div.ev-upc')
     ids = lives.css('span[data-event-id]').collect{|a| a.attribute('data-event-id')}
 
-    render json: JSON.generate({ids: ids})
+    render json: JSON.generate({ids: ids}), status: 200
   end
 
   def get_info
@@ -19,7 +19,7 @@ class UeventsController < ApplicationController
     date = uevent.first.css('span.ev-timer').first.attribute('title')
     game = %w(??? sc2 scbw csgo hots ssb)[/\d(?=\.png)/.match(uevent.first.css('span.ev').first.attribute('style'))[0].to_i]
 
-    render json: JSON.generate({uevent: {name: title, date:  date, timer: timer, game: game}})
+    render json: JSON.generate({uevent: {name: title, date:  date, timer: timer, game: game}}), status: 200
   end
 
 end

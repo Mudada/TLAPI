@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def show
     lives = @@document.css('div.ev-live')
     ids = lives.css('span[data-event-id]').collect{|a| a.attribute('data-event-id')}
-    render json: JSON.generate(ids: ids)
+    render json: JSON.generate(ids: ids), status: 200
   end
 
   def get_info
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     stream = 'http://www.teamliquid.net/' + uevent.first.css('div.ev-stream').first.css('a').first.attribute('href')
     game = %w(??? sc2 scbw csgo hots ssb)[/\d(?=\.png)/.match(uevent.first.css('span.ev').first.attribute('style'))[0].to_i]
 
-    render json: JSON.generate({uevent: {name: title, game: game, stream: stream}})
+    render json: JSON.generate({uevent: {name: title, game: game, stream: stream}}), status: 200
   end
 
 end

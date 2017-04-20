@@ -37,7 +37,7 @@ class StreamsController < ApplicationController
       end
     }
 
-    render json: JSON.generate(hash)
+    render json: JSON.generate(hash), status: 200
   end
 
 end
