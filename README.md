@@ -3,6 +3,9 @@ This crapy api is designed to get online streams, live events and upcoming event
 
 
 ## How does this shit work
+
+https://elgrandeapidelteamliquid.herokuapp.com/
+
 | endpoint  | result   |
 |---------|--------------|
 |`GET:/streams`  | ```{"featured":[{streamer:streamer,game:"game",url:"url"]}"non_featured":[{streamer:streamer,game:"game",url:"url"]}```  |
