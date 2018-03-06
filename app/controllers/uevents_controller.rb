@@ -1,9 +1,11 @@
 class UeventsController < ApplicationController
 
-  @@document = Nokogiri::HTML(open('http://www.teamliquid.net/'))
+  def document
+    Nokogiri::HTML(open('http://www.teamliquid.net/'))
+  end
 
   def show
-    lives = @@document.css('div.ev-upc')
+    lives = document.css('div.ev-upc')
     ids = lives.css('span[data-event-id]').collect{|a| a.attribute('data-event-id')}
     uevents = ids.collect{|id|
       get_info(id)
@@ -14,7 +16,7 @@ class UeventsController < ApplicationController
   private
 
   def get_info(id)
-    ups = @@document.css('div.ev-upc')
+    ups = document.css('div.ev-upc')
     uevent = ups.select{|upc|
       upc.css('span[data-event-id]').first.attribute('data-event-id') == id
     }
