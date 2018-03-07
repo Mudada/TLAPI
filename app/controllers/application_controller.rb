@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     Nokogiri::HTML(open('http://www.teamliquid.net/'))
   end
 
+  def clean_tl_link(href)
+    link.gsub('\\', '').gsub(/^"|"$/, '')
+  end
+
 end

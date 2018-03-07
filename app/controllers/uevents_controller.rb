@@ -1,6 +1,6 @@
 class UeventsController < ApplicationController
 
-  def show
+  def index
     lives = tl_html.css('div.ev-upc')
     uevents = lives.map{|id|
       get_info(id)
@@ -8,9 +8,8 @@ class UeventsController < ApplicationController
     render json: JSON.generate({uevents: uevents}), status: 200
   end
 
-  private
-
-  def get_info(elem)
+private
+def get_info(elem)
     span = elem.css('span[data-event-id]').first
     id = span['data-event-id']
     title = span.content
