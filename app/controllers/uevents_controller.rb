@@ -12,7 +12,7 @@ class UeventsController < ApplicationController
 
   def get_info(elem)
     span = elem.css('span[data-event-id]').first
-    id = elem['data-event-id']
+    id = span['data-event-id']
     title = span.content
     timer = elem.css('span.ev-timer').first.content
     date = elem.css('span.ev-timer').first.attribute('title')

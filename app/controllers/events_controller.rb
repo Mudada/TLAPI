@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def get_info(elem)
     span = elem.css('span[data-event-id]').first
-    id = elem['data-event-id']
+    id = span['data-event-id']
     title = span.content
     a = elem.css('div.ev-stream').first.css('a').first
     game = %w(??? sc2 scbw csgo hots ssb)[/\d(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
