@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     html = Nokogiri::HTML(q.body)
     lp = html.css('a[href*="liquipedia"]')
     puts lp.first['href']
-    render json: {lp: lp.length ? clean_tl_link(lp.first['href']) : ''}
+    render json: {id: params[:id], lp: lp.length ? clean_tl_link(lp.first['href']) : ''}
   end
 
   def index
