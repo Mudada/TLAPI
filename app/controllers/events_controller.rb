@@ -1,5 +1,3 @@
-require 'htmlentities'
-
 class EventsController < ApplicationController
 
   def details
