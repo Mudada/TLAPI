@@ -1,12 +1,18 @@
+require 'htmlentities'
+
 class EventsController < ApplicationController
 
   def details
     post = {action: 'view-event-popup', event_id: params[:id]}
     q = Net::HTTP.post_form(URI.parse('http://www.teamliquid.net/calendar/manage'), post)
-    html = Nokogiri::HTML(q.body)
+    json = JSON.parse(q.body)
+    html = Nokogiri::HTML(json["html"])
     lp = html.css('a[href*="liquipedia"]')
-    puts lp.first['href']
-    render json: {id: params[:id], lp: lp.length ? clean_tl_link(lp.first['href']) : ''}
+    render json: {
+      id: params[:id],
+      lp: lp.length ? clean_tl_link(lp.first['href']) : '',
+      subtext: html.css('h2').first.content
+    }
   end
 
   def index
