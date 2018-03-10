@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     link.gsub('\\', '').gsub(/^"|"$/, '')
   end
 
+  def games
+    @games ||= %w(??? sc2 scbw csgo hots ssb ow)
+  end
+
 end

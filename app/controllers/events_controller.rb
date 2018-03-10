@@ -27,7 +27,7 @@ private
     id = span['data-event-id']
     title = span.content
     a = elem.css('div.ev-stream').first.css('a').first
-    game = %w(??? sc2 scbw csgo hots ssb)[/\d(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
+    game = games[/\d(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
     if a
       stream = 'http://www.teamliquid.net/' + a.attribute('href')
     end

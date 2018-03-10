@@ -15,7 +15,7 @@ def get_info(elem)
     title = span.content
     timer = elem.css('span.ev-timer').first.content
     date = elem.css('span.ev-timer').first.attribute('title')
-    game = %w(??? sc2 scbw csgo hots ssb)[/\d(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
+    game = games[/\d(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
     return {id: id, name: title, date:  date, timer: timer, game: game}
   end
 
