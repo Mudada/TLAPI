@@ -29,7 +29,7 @@ private
 	pair = Hash[streamers.zip urls.zip(viewers)]
         pair.map{|streamer, data|
           url, viewers = data
-          {streamer: streamer, game: game, url: url, viewers: viewers, featured: featured}
+	  {streamer: streamer, game: game, url: url, viewers: viewers.to_i, featured: featured}
         }
       else
         []
