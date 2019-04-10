@@ -29,7 +29,8 @@ private
 	pair = Hash[streamers.zip urls.zip(viewers)]
         pair.map{|streamer, data|
           url, viewers = data
-	  {streamer: streamer, game: game, url: url, viewers: viewers.to_i, featured: featured}
+	  game_idx = game_full_names.index(game)
+	  {streamer: streamer, game: game_idx ? games[game_idx] : game, url: url, viewers: viewers.to_i, featured: featured}
         }
       else
         []

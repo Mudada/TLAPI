@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   def games
-    @games ||= %w(??? sc2 scbw csgo hots ssb ow)
+    @games ||= %w(other sc2 scbw csgo hots ssb ow)
+  end
+
+  def game_full_names
+    # not sure for HotS/SSB/OW
+    @game_full_names ||= ["Other Games", "StarCraft 2", "StarCraft: Brood War", "Counter-Strike: Global Offensive", "Heroes of the Storm", "Super Smash Bros", "OverWatch"]
   end
 
 end
