@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def tl_html
-    Nokogiri::HTML(open('http://www.teamliquid.net/'))
+    Nokogiri::HTML(open('https://www.teamliquid.net/'))
   end
 
   def clean_tl_link(link)
