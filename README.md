@@ -4,7 +4,6 @@ This crapy api is designed to get online streams, live events and upcoming event
 
 ## How does this shit work
 
-https://elgrandeapidelteamliquid.herokuapp.com/
 
 | endpoint  | result   |
 |---------|--------------|
