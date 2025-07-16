@@ -29,7 +29,12 @@ private
     a = elem.css('div.ev-stream').first.css('a').first
     game = games[/\d+(?=\.png)/.match(elem.css('span.ev').first.attribute('style'))[0].to_i]
     if a
-      stream = 'http://www.teamliquid.net/' + a.attribute('href')
+      href = a.attribute('href')
+      if href.starts_with?('http://') or href.starts_with?('https://')
+        stream = href
+      else
+        stream = 'http://www.teamliquid.net/' + href
+      end
     end
 
     return {id: id, name: title, game: game, url: stream}
